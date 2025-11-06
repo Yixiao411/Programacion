@@ -24,6 +24,7 @@ fun main(){
             matriu[i][x] *= augment
         }
     }
+
     //mostra el resultat
     for (fila in matriu) {
         println(fila.joinToString(" "))
