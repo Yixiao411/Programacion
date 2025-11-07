@@ -9,6 +9,7 @@ fun main() {
     //medida
     val rowCol = scan.nextInt()
     scan.nextLine()
+
     //iniciar matriu i in troduir valors
     var matriu = MutableList(rowCol){ MutableList(rowCol){"."} }
     //pintar
