@@ -6,29 +6,37 @@ import java.util.Scanner
 fun main() {
     val scan = Scanner(System.`in`)
     //intro
-    var numero = scan.nextInt()
+    var numero = scan.nextLine().toString()
     //fins que no esta buiuda
-    while (numero != 0) {
-        val listaN = numero.toString().split("").filter{it.isNotEmpty()}
-        var pos1_1 = 0
-        var pos1_2 = 0
+    while (numero != "0") {
+        var max0 = -1
         var count0 = 0
-        var siClon = true
-        if (listaN[0]=="1"&&listaN[listaN.size-1]=="1"){
-            for (i in listaN.indices){
-                when(listaN[i]){
-                    "0"->{
-
-                    }
-                    "1"->{
-                        if (pos1_1==0) pos1_1 = i
-                        if (pos1_2==0&&pos1_1!=0) pos1_2 = i
+        var siClon = numero[0] == '1' && numero[numero.length-1] == '1'
+        if (siClon) {
+            for (i in 1 until numero.length) {
+                when (numero[i]) {
+                    '0' -> count0++
+                    '1' -> {
+                        if (max0 == -1) {
+                            max0 = count0
+                        } else if (count0 != max0) {
+                            siClon = false
+                        }
+                        count0 = 0
                     }
                 }
             }
 
-            if (siClon) println(count0+1) else println(0)
-        }else println("0")
-        numero = scan.nextInt()
+            if (siClon) {
+                if (max0==-1){
+                    println(1)
+                }else {
+                    println(max0 + 1)
+                }
+            } else {
+                println(0)
+            }
+        } else println(0)
+        numero = scan.nextLine()
     }
 }
