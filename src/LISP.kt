@@ -30,7 +30,6 @@ fun main() {
                             //si esta en capa correcto guardamos la pos y salimos del bucle
                             if (nivel == 0 && s[x] == detras) {
                                 posDef = x
-                                break
                             } else if (nivel > 0) nivel-- //si estamos en un capa mas restamos una capa
                         }
                     }
